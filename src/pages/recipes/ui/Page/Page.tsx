@@ -1,11 +1,6 @@
-import { RandomRecipe, RecipesList } from "features/recipes";
-import { useAppSelector } from "shared/lib";
+import { RandomRecipe, RecipesList } from "entities/recipe";
 
 export const RootPage = () => {
-  const recipes = useAppSelector((state) => state.recipes);
-
-  // console.log(recipes);
-
   return (
     <div className="flex flex-col items-center gap-4">
       <h1>Recipes 👨‍🍳</h1>
