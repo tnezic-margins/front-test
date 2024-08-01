@@ -1,13 +1,14 @@
-import { RandomRecipe, RecipesList } from "entities/recipe";
+import { InfoSection } from "widgets/InfoSection";
+import { MainSection } from "widgets/MainSection";
 
 export const RootPage = () => {
   return (
-    <div className="flex flex-col items-center gap-4">
-      <h1>Recipes 👨‍🍳</h1>
+    <>
+      <div className="flex flex-row justify-between">
+        <MainSection />
 
-      <RecipesList />
-
-      <RandomRecipe />
-    </div>
+        <InfoSection className="mt-4 mr-7" />
+      </div>
+    </>
   );
 };

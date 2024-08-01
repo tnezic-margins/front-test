@@ -18,11 +18,19 @@ export const recipesApi = baseApi.injectEndpoints({
         };
       },
     }),
+    searchRecipes: build.query<RecipeResponse, { searchTerm: string }>({
+      query: ({ searchTerm }) => ({
+        url: `/recipes/search?q=${searchTerm}&limit=20`,
+      }),
+    }),
   }),
 });
 
 export const {
   useGetMultipleRecipesQuery,
+  useLazyGetMultipleRecipesQuery,
   useLazyGetSingleRecipeQuery,
   useGetSingleRecipeQuery,
+  useSearchRecipesQuery,
+  useLazySearchRecipesQuery,
 } = recipesApi;
