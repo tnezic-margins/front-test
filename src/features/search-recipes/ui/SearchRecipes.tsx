@@ -13,7 +13,7 @@ export const SearchRecipes = () => {
 
   return (
     <div className="flex flex-col gap-5">
-      <SearchInput searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <SearchInput searchTerm={searchTerm} onChange={setSearchTerm} />
 
       <RecipesList recipes={data?.recipes ?? []} isLoading={isLoading} />
     </div>

@@ -3,11 +3,11 @@ import { ComponentProps } from "react";
 import { useParams } from "react-router-dom";
 import { DataGroup } from "shared/ui";
 
-type InfoSectionProps = {
+type RecipeDetailProps = {
   className?: ComponentProps<"div">["className"];
 };
 
-export const InfoSection = ({ className }: InfoSectionProps) => {
+export const RecipeDetail = ({ className }: RecipeDetailProps) => {
   const params = useParams();
 
   // ?

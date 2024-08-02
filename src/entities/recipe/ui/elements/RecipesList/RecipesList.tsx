@@ -1,8 +1,8 @@
 import { RecipesItem } from "../RecipesItem/RecipesItem";
-import { Recipe } from "entities/recipe";
+import { RecipeType } from "entities/recipe";
 
 type RecipesListProps = {
-  recipes: Recipe[];
+  recipes: RecipeType[];
   isLoading?: boolean;
 };
 

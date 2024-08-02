@@ -7,7 +7,7 @@ const getContainedClasses = (color: ButtonColor): string => {
     return "text-white bg-rose-500 hover:bg-rose-400 active:bg-rose-600 disabled:bg-gray-500";
 
   // Default color: primary
-  return "text-white bg-blue-500 hover:bg-blue-400 active:bg-blue-600 disabled:bg-gray-500";
+  return "text-white bg-yellow-600 bg-yellow-700 active:bg-yellow-800 disabled:bg-gray-500";
 };
 
 /** Styles for outlined variant */

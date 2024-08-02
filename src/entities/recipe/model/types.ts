@@ -1,95 +1,5 @@
 export type Difficulty = "Easy" | "Medium";
 
-export enum Tag {
-  "Pizza",
-  "Italian",
-  "Vegetarian",
-  "Stir-fry",
-  "Asian",
-  "Cookies",
-  "Dessert",
-  "Baking",
-  "Pasta",
-  "Chicken",
-  "Salsa",
-  "Salad",
-  "Quinoa",
-  "Bruschetta",
-  "Beef",
-  "Caprese",
-  "Shrimp",
-  "Biryani",
-  "Main course",
-  "Indian",
-  "Pakistani",
-  "Karahi",
-  "Keema",
-  "Potatoes",
-  "Kebabs",
-  "Saag",
-  "Roti",
-  "Ramen",
-  "Japanese",
-  "Soup",
-  "Tagine",
-  "Chickpea",
-  "Moroccan",
-  "Bibimbap",
-  "Korean",
-  "Rice",
-  "Moussaka",
-  "Greek",
-  "Butter chicken",
-  "Curry",
-  "Thai",
-  "Lassi",
-  "Mango",
-  "Tiramisu",
-  "Turkish",
-  "Grilling",
-  "Smoothie",
-  "Blueberry",
-  "Banana",
-  "Elote",
-  "Mexican",
-  "Street food",
-  "Borscht",
-  "Russian",
-  "Dosa",
-  "Falafel",
-  "Lebanese",
-  "Wrap",
-  "Caipirinha",
-  "Brazilian",
-  "Cocktail",
-  "Patatas bravas",
-  "Spanish",
-  "Spring rolls",
-  "Vietnamese",
-  "Quinoa salad",
-  "Mediterranean",
-  "Matcha ice cream",
-  "Brigadeiros",
-  "Enchiladas",
-  "Shrimp curry",
-  "Spanakopita",
-  "Couscous salad",
-  "Mojito",
-  "Cuban",
-  "Teriyaki chicken",
-  "Mango salsa",
-  "Shrimp stir-fry",
-  "Quick",
-  "Margherita pizza",
-  "Pesto pasta",
-  "Chicken skewers",
-  "Hawaiian",
-  "Sushi rolls",
-  "Chickpea salad",
-  "Pineapple",
-  "Coconut",
-}
-
 export const Tags = new Map([
   ["Pizza", "Pizza"],
   ["Italian", "Italian"],
@@ -180,9 +90,7 @@ export const Tags = new Map([
   ["Coconut", "Coconut"],
 ]);
 
-// export type RecipeTag = {};
-
-export type Recipe = {
+export type RecipeType = {
   id: number;
   name: string;
   ingredients: string[];
@@ -203,8 +111,14 @@ export type Recipe = {
 };
 
 export type RecipeResponse = {
-  recipes: Recipe[];
+  recipes: RecipeType[];
   total: number;
   skip: number;
   limit: number;
+};
+
+export type Tag = {
+  id: number;
+  value: string;
+  isActive: boolean;
 };

@@ -1,6 +1,6 @@
 import { SearchRecipes } from "features/search-recipes/ui/SearchRecipes";
-import { Link } from "react-router-dom";
 import { SIDEBAR_LENGTH } from "shared/lib";
+import { Button } from "shared/ui";
 
 export const Sidebar = () => {
   return (
@@ -11,6 +11,8 @@ export const Sidebar = () => {
       <a href="/">
         <h1 className="text-xl text-white">Recipes 👨‍🍳</h1>
       </a>
+
+      <Button size="sm">Favorites</Button>
 
       <SearchRecipes />
     </div>

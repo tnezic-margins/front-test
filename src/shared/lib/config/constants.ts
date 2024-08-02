@@ -1,1 +1,1 @@
-export const SIDEBAR_LENGTH = '13rem';
+export const SIDEBAR_LENGTH = "13rem";
