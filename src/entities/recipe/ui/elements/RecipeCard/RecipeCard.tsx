@@ -40,7 +40,7 @@ export const RecipeCard = ({
 
   return (
     <div
-      className={`relative flex flex-col gap-2 items-center text-center bg-[#282828] min-w-[8.5rem] h-[190px] rounded-md ${className}`}
+      className={`relative flex flex-col gap-2 items-center text-center bg-[#282828] w-[8.5rem] min-w-[8.5rem] h-[190px] rounded-md ${className}`}
       onClick={() => {
         onCardClick?.();
         navigate(`/${recipe.id}`);

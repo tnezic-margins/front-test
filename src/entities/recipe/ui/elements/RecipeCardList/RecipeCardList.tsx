@@ -17,7 +17,7 @@ export const RecipeCardList = ({
 }: RecipeCardListProps) => {
   return (
     <div
-      className={`flex flex-row gap-x-6 overflow-x-scroll w-full ${className}`}
+      className={`flex flex-row gap-x-6 overflow-x-scroll ${className}`}
     >
       {recipes.map((it) => (
         <RecipeCard
