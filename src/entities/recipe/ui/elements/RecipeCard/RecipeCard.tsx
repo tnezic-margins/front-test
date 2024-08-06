@@ -1,25 +1,12 @@
 import { RecipeType } from "entities/recipe/model/types";
 import { ComponentProps } from "react";
 import { useNavigate } from "react-router-dom";
-import { HeartIcon } from "@heroicons/react/24/solid";
-import { HeartIcon as HeartIconOutlined } from "@heroicons/react/24/outline";
-import { useAppDispatch, useAppSelector } from "shared/lib";
-import {
-  removeFavoriteRecipe,
-  setFavoriteRecipes,
-} from "entities/recipe/model/recipesSlice";
+import { MutateFavoriteRecipes } from "features/mutate-favorite-recipes";
 
 type RecipeCardProps = {
   recipe: RecipeType;
   className?: ComponentProps<"div">["className"];
   onCardClick?: () => void;
-};
-
-const heartIconSharedStyles = {
-  position: "absolute",
-  width: "1.8rem",
-  right: 0,
-  color: "red",
 };
 
 export const RecipeCard = ({
@@ -28,15 +15,6 @@ export const RecipeCard = ({
   onCardClick,
 }: RecipeCardProps) => {
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-
-  const favoriteRecipes = useAppSelector(
-    (state) => state.recipes.favoriteRecipes
-  );
-
-  const ids = favoriteRecipes.map((item: RecipeType) => item.id);
-
-  const isFavorite = ids.includes(recipe.id);
 
   return (
     <div
@@ -50,23 +28,10 @@ export const RecipeCard = ({
 
       <p className="text-sm text-white">{recipe.name}</p>
 
-      {isFavorite ? (
-        <HeartIcon
-          style={{ ...(heartIconSharedStyles as any) }}
-          onClick={(e) => {
-            e.stopPropagation();
-            dispatch(removeFavoriteRecipe(recipe.id));
-          }}
-        />
-      ) : (
-        <HeartIconOutlined
-          style={{ ...(heartIconSharedStyles as any) }}
-          onClick={(e) => {
-            e.stopPropagation();
-            dispatch(setFavoriteRecipes(recipe));
-          }}
-        />
-      )}
+      <MutateFavoriteRecipes
+        recipe={recipe}
+        className={{ position: "absolute" }}
+      />
     </div>
   );
 };
