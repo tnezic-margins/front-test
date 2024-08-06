@@ -1,6 +1,5 @@
 import { ReactNode, useState } from "react";
 import {
-  Button,
   Dialog,
   DialogContent,
   DialogDescription,
@@ -10,14 +9,14 @@ import {
 } from "shared/ui";
 
 type DialogWrapperProps = {
-  dialogTriggerButtonLabel: string;
+  dialogTriggerButton: ReactNode | string;
   dialogTitle: string;
   dialogDescription?: string;
   dialogContent: (onClick: () => void) => ReactNode;
 };
 
 export const DialogWrapper = ({
-  dialogTriggerButtonLabel,
+  dialogTriggerButton,
   dialogTitle,
   dialogDescription,
   dialogContent,
@@ -26,9 +25,7 @@ export const DialogWrapper = ({
 
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <DialogTrigger asChild>
-        <Button size="sm">{dialogTriggerButtonLabel}</Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{dialogTriggerButton}</DialogTrigger>
 
       <DialogContent aria-describedby="description">
         <DialogHeader>

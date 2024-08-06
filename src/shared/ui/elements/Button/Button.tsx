@@ -1,4 +1,4 @@
-import { type ForwardedRef, forwardRef } from "react";
+import { ComponentProps, type ForwardedRef, forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "shared/lib";
 import { type ButtonVariant, type ButtonSize, type ButtonColor } from "./types";
@@ -17,6 +17,7 @@ interface Props {
   onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   disabled?: boolean;
   isLoading?: boolean;
+  className?: ComponentProps<"div">["className"];
 }
 
 /**
@@ -41,6 +42,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
       onClick,
       isLoading,
       disabled,
+      className,
       ...commonProps
     },
     ref
@@ -48,7 +50,8 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
     const classes = cn(
       getBaseClasses(),
       getSizeClasses(size),
-      getVariantClasses(variant, color)
+      getVariantClasses(variant, color),
+      className
     );
 
     if (to)

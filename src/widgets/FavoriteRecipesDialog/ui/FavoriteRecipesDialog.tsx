@@ -1,8 +1,15 @@
 import { RecipeCardList } from "entities/recipe";
+import { ReactNode } from "react";
 import { useAppSelector } from "shared/lib";
 import { DialogWrapper } from "shared/ui/elements/Dialog/DialogWrapper";
 
-export const FavoriteRecipesDialog = () => {
+type FavoriteRecipesDialogProps = {
+  dialogTriggerButton: ReactNode | string;
+};
+
+export const FavoriteRecipesDialog = ({
+  dialogTriggerButton,
+}: FavoriteRecipesDialogProps) => {
   const favoriteRecipes = useAppSelector(
     (state) => state.recipes.favoriteRecipes
   );
@@ -12,7 +19,7 @@ export const FavoriteRecipesDialog = () => {
   return (
     <DialogWrapper
       dialogTitle="Favorite recipes"
-      dialogTriggerButtonLabel="Favorites"
+      dialogTriggerButton={dialogTriggerButton}
       dialogContent={(onClick) =>
         isFavoritesRecipesEmpty ? (
           <p>You don't have any favorite recipes yet.</p>

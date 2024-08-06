@@ -1,21 +1,34 @@
-import { useSearchRecipesQuery, RecipesList } from "entities/recipe";
+import { RecipesList, useLazySearchRecipesQuery } from "entities/recipe";
 import { useState } from "react";
 import { SearchInput } from "shared/ui";
-import { useDebounce } from "use-debounce";
+import { useDebouncedCallback } from "use-debounce";
 
 export const SearchRecipes = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 300);
 
-  const { data, isLoading } = useSearchRecipesQuery({
-    searchTerm: debouncedSearchTerm,
-  });
+  const handleOnSearch = useDebouncedCallback(() => {
+    trigger({ searchTerm: searchTerm });
+  }, 300);
+
+  const [trigger, { data, isLoading }] = useLazySearchRecipesQuery();
 
   return (
-    <div className="flex flex-col gap-5">
-      <SearchInput searchTerm={searchTerm} onChange={setSearchTerm} />
+    <div className="flex flex-col gap-5 relative w-[240px]">
+      <SearchInput
+        searchTerm={searchTerm}
+        onChange={(value) => {
+          setSearchTerm(value);
+          handleOnSearch();
+        }}
+      />
 
-      <RecipesList recipes={data?.recipes ?? []} isLoading={isLoading} />
+      {searchTerm !== "" && data?.recipes && (
+        <RecipesList
+          recipes={data?.recipes ?? []}
+          isLoading={isLoading}
+          className="h-[200px] absolute top-10 z-50 w-full px-4"
+        />
+      )}
     </div>
   );
 };
