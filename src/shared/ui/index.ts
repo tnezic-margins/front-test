@@ -4,3 +4,4 @@ export * from "./elements/Chip/Chip";
 export * from "./elements/DataList/DataList";
 export * from "./elements/DataGroup/DataGroup";
 export * from "./elements/Label/Label";
+export * from "./elements/Dialog/Dialog";

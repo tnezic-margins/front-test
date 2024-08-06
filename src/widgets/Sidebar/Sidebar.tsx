@@ -1,6 +1,6 @@
 import { SearchRecipes } from "features/search-recipes/ui/SearchRecipes";
 import { SIDEBAR_LENGTH } from "shared/lib";
-import { Button } from "shared/ui";
+import { FavoriteRecipesDialog } from "widgets/FavoriteRecipesDialog";
 
 export const Sidebar = () => {
   return (
@@ -12,7 +12,7 @@ export const Sidebar = () => {
         <h1 className="text-xl text-white">Recipes 👨‍🍳</h1>
       </a>
 
-      <Button size="sm">Favorites</Button>
+      <FavoriteRecipesDialog />
 
       <SearchRecipes />
     </div>

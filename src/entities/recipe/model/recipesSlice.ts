@@ -1,22 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Recipe } from "./types";
+import { RecipeType } from "./types";
 
 interface RecipesState {
-  recipes: Recipe[] | null;
+  favoriteRecipes: RecipeType[];
 }
 
-const initialState: RecipesState = { recipes: null };
+const initialState: RecipesState = { favoriteRecipes: [] };
 
 const recipesSlice = createSlice({
   name: "recipes",
   initialState,
   reducers: {
-    setRecipes: (state, action) => {
-      state.recipes = action.payload;
+    setFavoriteRecipes: (state, action) => {
+      state.favoriteRecipes = [...state.favoriteRecipes, action.payload];
+    },
+    removeFavoriteRecipe: (state, action) => {
+      state.favoriteRecipes = state.favoriteRecipes.filter(
+        (recipe) => recipe.id !== action.payload
+      );
     },
   },
 });
 
-export const { setRecipes } = recipesSlice.actions;
+export const { setFavoriteRecipes, removeFavoriteRecipe } =
+  recipesSlice.actions;
 
 export const recipesReducer = recipesSlice.reducer;
