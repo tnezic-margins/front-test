@@ -46,6 +46,8 @@ export const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
           )
         }
       />
+
+      <p>My super mind-blowing amazing so freaking good feature.</p>
     </div>
   );
 };
