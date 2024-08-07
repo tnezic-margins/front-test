@@ -6,5 +6,5 @@ import { env } from "shared/lib";
 export const baseApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: env.apiUrl }),
-  endpoints: (builder) => ({}),
+  endpoints: () => ({}),
 });
