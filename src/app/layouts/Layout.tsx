@@ -3,8 +3,7 @@ import { Outlet } from "react-router-dom";
 import { SIDEBAR_LENGTH, SIDEBAR_LENGTH_COLLAPSED } from "shared/lib";
 import { Header } from "widgets/Header/ui/Header";
 import { Sidebar } from "widgets/Sidebar";
-
-export const TRANSITION = { transition: "all 0.4s ease-out" };
+import { TRANSITION } from "./types";
 
 export const Layout = () => {
   const [isOpen, setIsOpen] = useState(true);

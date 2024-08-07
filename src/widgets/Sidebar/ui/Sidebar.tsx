@@ -1,11 +1,10 @@
 import { SIDEBAR_LENGTH } from "shared/lib";
 import { FavoriteRecipesDialog } from "widgets/FavoriteRecipesDialog";
-import { ArrowLeftCircleIcon } from "@heroicons/react/24/outline";
-import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { Dispatch, SetStateAction } from "react";
-import { TRANSITION } from "app/layouts/Layout";
 import { Button } from "shared/ui";
 import { HeartIcon } from "@heroicons/react/24/solid";
+import { TRANSITION } from "app/layouts/types";
+import { IndicatorArrows } from "./elements/IndicatorArrows/IndicatorArrows";
 
 type SidebarProps = {
   isOpen: boolean;
@@ -27,29 +26,7 @@ export const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
           <h1 className="text-xl text-white">Recipes 👨‍🍳</h1>
         </a>
 
-        {isOpen ? (
-          <ArrowLeftCircleIcon
-            onClick={() => setIsOpen((prevState) => !prevState)}
-            style={{
-              position: "absolute",
-              width: "1.7rem",
-              right: 10,
-              top: 20,
-              cursor: "pointer",
-            }}
-          />
-        ) : (
-          <ArrowRightCircleIcon
-            onClick={() => setIsOpen((prevState) => !prevState)}
-            style={{
-              position: "absolute",
-              width: "1.7rem",
-              right: 10,
-              top: 20,
-              cursor: "pointer",
-            }}
-          />
-        )}
+        <IndicatorArrows isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
 
       <FavoriteRecipesDialog
